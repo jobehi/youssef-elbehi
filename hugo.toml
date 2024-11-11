@@ -5,3 +5,8 @@ enableRobotsTXT = true
 
 [params]
   description = "Documenting the journey."
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  paginate = 5

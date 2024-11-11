@@ -1,0 +1,13 @@
+{{ define "main" }}
+<h2>Welcome to My Blog</h2>
+<p>This is a simple Hugo blog without a theme.</p>
+<h3>Recent Posts</h3>
+<ul>
+    {{ range .Pages }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <span> - {{ .Date.Format "January 2, 2006" }}</span>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
