@@ -43,7 +43,6 @@ jobs:
 
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-        working-directory: src/  # Apply only where needed
 
       - name: Build with Hugo
         env:
@@ -55,12 +54,11 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-        working-directory: src/  # Apply only where needed
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: src/public  # Adjusted for your structure
+          path: public  # Adjusted for your structure
 
   # Deployment job
   deploy:
