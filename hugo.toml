@@ -1,3 +1,12 @@
-baseURL = 'https://jobehi.github.io/youssef-elbehi/'
-languageCode = 'en-us'
-title = 'Youssef El Behi - Human, Artist, Software Lover'
+baseURL = "https://jobehi.github.io/youssef-elbehi/"
+languageCode = "en-us"
+title = "Youssef El Behi - Human, Artist, Software Lover"
+enableRobotsTXT = true
+
+[params]
+  description = "Documenting the journey."
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  paginate = 5
