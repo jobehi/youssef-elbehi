@@ -2,7 +2,15 @@
 <header>
     <h1><a href="{{ "" | relURL }}">{{ .Site.Title }}</a></h1>
     <nav>
-        <a href="{{ "" | relURL }}">Home</a>
-        <a href="{{ "about/" | relURL }}">About</a>
+        <a href="{{ "posts/" | relURL }}">Posts</a>
+        <a href="{{ "about/" | relURL }}">About me</a>
+        <a href="{{ "art/" | relURL }}">Art</a>
+
     </nav>
+
+    <!-- Dark mode toggle icon -->
+    <div class="dark-mode-toggle" onclick="toggleTheme()">
+        <span id="darkModeIcon">☀️</span> <!-- Sun icon for light mode -->
+    </div>
+
 </header>
