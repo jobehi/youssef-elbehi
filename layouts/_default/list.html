@@ -1,4 +1,6 @@
 {{ define "main" }}
+<div class="recent-posts">
+
 <h2>Blog Posts</h2>
 <ul>
     {{ range .Paginator.Pages }}
@@ -8,6 +10,7 @@
     </li>
     {{ end }}
 </ul>
+</div>
 
 <div class="pagination">
     {{ if .Paginator.HasPrev }}
