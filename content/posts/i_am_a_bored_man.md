@@ -3,7 +3,7 @@ title = 'I am a bored man'
 date = 2025-02-02T21:05:54+01:00
 draft = false
 categories = ["General"]
-tags = ["Introduction", "Hugo"]
+tags = ["Personal", "Welcome"]
 coverImage = "auto_portrait.png"
 summary = "An ode to boredom and the beginning of a journey."
 +++
