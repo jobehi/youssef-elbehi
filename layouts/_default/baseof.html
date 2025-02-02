@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>{{ .Title }} | {{ .Site.Title }}</title>
     <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    <script>
+        // Immediately apply the theme to avoid flickering
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
+    <script src="{{ "js/theme.js" | relURL }}" defer></script>
+    <meta name="description" content="A personal blog by Youssef El Behi, sharing insights on software development and life.">
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta property="og:description" content="A personal blog by Youssef El Behi">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.coverImage }}">
 </head>
 <body>
     <div class="wrapper">

@@ -1,13 +1,31 @@
 {{ define "main" }}
-<h2>Welcome to My Blog</h2>
-<p>This is a simple Hugo blog without a theme.</p>
-<h3>Recent Posts</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <span> - {{ .Date.Format "January 2, 2006" }}</span>
-    </li>
+<div class="welcome-section">
+    <p>Insights, projects, and reflections on technology, art, and personal growth.</p>
+</div>
+
+<section class="card-gallery">
+
+    {{ range first 10 (where .Site.RegularPages "Params.draft" false) }}
+    <article class="card">
+        <a href="{{ .RelPermalink }}">
+            {{ with .Params.coverImage }}
+            <div class="card-cover
+                {{ if eq . "cover.jpg" }}
+                card-cover--default
+                {{ end }}">
+                {{ $image := resources.Get (printf "images/%s" .) }}
+                {{ $resized := $image.Resize "400x" }}
+                <img src="{{ $resized.RelPermalink }}" alt="Cover Image of {{ $.Title }}">
+            </div>
+            {{ end }}
+            <div class="card-content">
+                <h2>{{ .Title }}</h2>
+                <p>{{ .Summary }}</p>
+            </div>
+        </a>
+    </article>
     {{ end }}
-</ul>
+
+</section>
+
 {{ end }}
