@@ -1,16 +1,16 @@
 {{ define "main" }}
 <article>
     <h1>{{ .Title }}</h1>
-
+    <p class="date"><em>Published on {{ .Date.Format "2 January, 2006" }}</em></p>
+    </br>
      <!-- Cover Image -->
      {{ with .Params.coverImage }}
      <div class="post-cover">
         {{ $image := resources.Get (printf "images/%s" .) }}
-        {{ $resized := $image.Resize "800x" }}
+        {{ $resized := $image.Resize "400x" }}
         <img src="{{ $resized.RelPermalink }}" alt="Cover Image of {{ $.Title }}">
     </div>
      {{ end }}
-    <p class="date"><em>Published on {{ .Date.Format "2 January, 2006" }}</em></p>
     <div>
         {{ .Content }}
     </div>

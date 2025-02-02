@@ -289,3 +289,48 @@ a:hover {
 .post-cover {
     text-align: center;
 }
+
+.card-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.card-gallery img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-gallery h2 {
+    margin: 0;
+    color : var(--bg-color);
+}
+
+.card-gallery p {
+    font-size: 0.9rem;
+    color: var(--hover-color);
+}
+
+.card-gallery a {
+    text-decoration: none;
+    color: var(--a-hover-color);
+    transition: color 0.3s ease;
+}
+
+.card-gallery article {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--text-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+article a:hover {
+    color: #005f99;
+}
+
+article a {
+    color: var(--a-hover-color);
+    transition: color 0.3s ease;
+}
