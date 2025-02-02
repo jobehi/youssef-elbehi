@@ -21,7 +21,7 @@ Feeling guilty for not working on that novel you’ve been dreaming about? It’
 
 ## Let's go on low-quality-cheap-dopamine fast
 
-Now I could be hard on myself and start self loathing, but I proved to myself that I am capable of doing things:  I’ve scripted films, poured my heart into writing, and tackled challenging projects loaded with failure and doubt. None of those endeavors were easy and that’s precisely why they mattered. In the end, each line I typed or scene I filmed felt immortal in its own small way, leaving indelible imprints on my psyche and maybe even on those around me. I can’t say the same for all the cat memes I’ve scrolled past over the years.
+Now I could be hard on myself and start self loathing, And yet, I’ve proven that I am capable of doing things:  I’ve scripted films, poured my heart into writing, and tackled challenging projects loaded with failure and doubt. None of those endeavors were easy and that’s precisely why they mattered. In the end, each line I typed or scene I filmed felt immortal in its own small way, leaving indelible imprints on my psyche and maybe even on those around me. I can’t say the same for all the cat memes I’ve scrolled past over the years.
 
 I create because something in me demands it. I create to vent anger, to question, to express something that runs deeper than words. Deep down, it’s a strange and precious attempt at immortality.
 
