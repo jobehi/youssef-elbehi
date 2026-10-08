@@ -1,12 +1,16 @@
 baseURL = "https://jobehi.github.io/youssef-elbehi/"
 languageCode = "en-us"
-title = "Youssef El Behi - Human, Artist, Software Lover"
+title = "Youssef El Behi"
 enableRobotsTXT = true
 
 [params]
-  description = "Documenting the journey."
+  description = "Human, artist, software lover. Documenting the journey."
+  since = 2025
 
 [taxonomies]
   category = "categories"
   tag = "tags"
-  paginate = 5
+
+# Emit classes instead of inline colours, so code stays black and white.
+[markup.highlight]
+  noClasses = false

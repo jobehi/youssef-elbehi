@@ -1,0 +1,8 @@
+{{- /* Returns the page's cover image in grayscale, or false when it has none. */ -}}
+{{- $cover := false -}}
+{{- with .Params.coverImage -}}
+  {{- with resources.Get (printf "images/%s" .) -}}
+    {{- $cover = (.Filter images.Grayscale).Resize "960x jpg q72" -}}
+  {{- end -}}
+{{- end -}}
+{{- return $cover -}}

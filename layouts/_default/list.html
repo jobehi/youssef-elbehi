@@ -1,23 +1,6 @@
 {{ define "main" }}
-<div class="recent-posts">
-
-<h2>Blog Posts</h2>
-<ul>
-    {{ range .Paginator.Pages }}
-    <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <span> - {{ .Date.Format "January 2, 2006" }}</span>
-    </li>
-    {{ end }}
-</ul>
-</div>
-
-<div class="pagination">
-    {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}">Previous</a>
-    {{ end }}
-    {{ if .Paginator.HasNext }}
-        <a href="{{ .Paginator.Next.URL }}">Next</a>
-    {{ end }}
-</div>
+<p class="runner"><a href="{{ site.Home.RelPermalink }}">Youssef El Behi</a></p>
+<h1 class="hero">
+  {{- .Title }}: {{ with .Pages }}{{ partial "enumerate.html" . }}{{ else }}nothing yet{{ end }}.
+</h1>
 {{ end }}

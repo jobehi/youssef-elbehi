@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ site.LanguageCode | default "en" }}">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
-    <script>
-        // Immediately apply the theme to avoid flickering
-        (function () {
-            const savedTheme = localStorage.getItem("theme");
-            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
-            document.documentElement.setAttribute("data-theme", theme);
-        })();
-    </script>
-    <script src="{{ "js/theme.js" | relURL }}" defer></script>
-    <meta name="description" content="A personal blog by Youssef El Behi, sharing insights on software development and life.">
-    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
-    <meta property="og:description" content="A personal blog by Youssef El Behi">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.coverImage }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {{- $description := .Description | default .Summary | default site.Params.description | plainify | htmlUnescape | chomp }}
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with partial "cover.html" . }}
+  <meta property="og:image" content="{{ .Permalink }}">
+  {{- end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{- with site.Home.OutputFormats.Get "rss" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">
+  {{- end }}
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Ctext x='16' y='24' fill='%23f3f0e8' font-family='Charter,Georgia,serif' font-size='24' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+  {{- with resources.Get "css/main.css" | minify }}
+  <style>{{ .Content | safeCSS }}</style>
+  {{- end }}
 </head>
 <body>
-    <div class="wrapper">
-        {{ partial "header.html" . }}
-        <main>
-            {{ block "main" . }}{{ end }}
-        </main>
-        <footer>
-            <p>&copy; {{ if .Site.Params.since }}
-                {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
-              {{ else }}
-                {{ .Site.LastChange.Format "2006" }}
-              {{ end }} Youssef El Behi</p>
-        </footer>
-    </div>
+  <main>
+    {{- block "main" . }}{{ end }}
+  </main>
+  <footer>© {{ with site.Params.since }}{{ if lt . now.Year }}{{ . }}–{{ end }}{{ end }}{{ now.Year }} Youssef El Behi</footer>
 </body>
 </html>
