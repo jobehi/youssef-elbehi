@@ -1,18 +1,21 @@
 {{ define "main" }}
-<article>
-    <h1>{{ .Title }}</h1>
-    <p class="date"><em>Published on {{ .Date.Format "2 January, 2006" }}</em></p>
-    </br>
-     <!-- Cover Image -->
-     {{ with .Params.coverImage }}
-     <div class="post-cover">
-        {{ $image := resources.Get (printf "images/%s" .) }}
-        {{ $resized := $image.Resize "400x" }}
-        <img src="{{ $resized.RelPermalink }}" alt="Cover Image of {{ $.Title }}">
-    </div>
-     {{ end }}
-    <div>
-        {{ .Content }}
-    </div>
+<p class="runner"><a href="{{ site.Home.RelPermalink }}">Youssef El Behi</a></p>
+<article class="post">
+  <header>
+    <h1 class="hero">{{ .Title }}</h1>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+      · {{ .ReadingTime }} min read
+    </p>
+  </header>
+  {{- with partial "cover.html" . }}
+  <figure>
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+  </figure>
+  {{- end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
 </article>
+<p class="back"><a href="{{ site.Home.RelPermalink }}">← Youssef El Behi</a></p>
 {{ end }}

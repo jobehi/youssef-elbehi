@@ -1,0 +1,12 @@
+{{- /* Lists pages as prose: "A", "A and B", "A, B, and C". */ -}}
+{{- $n := len . -}}
+{{- range $i, $p := . -}}
+  {{- if gt $i 0 -}}
+    {{- if lt (add $i 1) $n }}, {{ else if eq $n 2 }} and {{ else }}, and {{ end -}}
+  {{- end -}}
+  {{- if .IsPage -}}
+    <a href="{{ .RelPermalink }}"><cite>{{ .Title }}</cite></a>&nbsp;({{ .Date.Format "2006" }})
+  {{- else -}}
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  {{- end -}}
+{{- end -}}
