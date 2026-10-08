@@ -1,6 +1,6 @@
 {{ define "main" }}
 <h1 class="hero">
-  I’m Youssef El Behi — human, artist, software lover, documenting the journey.
+  I’m Youssef El Behi. human, artist, software lover, documenting the journey.
   {{- with (where site.RegularPages "Section" "posts").ByDate.Reverse }} So far I have written {{ partial "enumerate.html" . }}.{{ end }}
 </h1>
 {{ end }}
